@@ -1,0 +1,3 @@
+<?php
+//Na razie nic
+?>
