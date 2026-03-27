@@ -15,6 +15,7 @@ if($connection->connect_errno !== 0){
             array_push($_SESSION["tasks"], ["id" => $row["ID"],"name" => $row["NAME"], "description" => $row["DESCRIPTION"]]);
         }
     }
+    mysqli_free_result($tasks);
 }
 $connection->close();
 ?>
