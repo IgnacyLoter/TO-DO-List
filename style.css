@@ -1,3 +1,27 @@
+body{
+  margin: 0px;
+  color: white;
+}
+header{
+  background-color: darkred;
+}
+main{
+  background-color: #404040;
+}
+footer{
+  background-color: #303030;
+}
 .task{
-    border: 3px solid red dashed;
+  border: 4px dashed blue;
+  text-align: 10px;
+  border-radius: 10px;
+}
+.confirm{
+    background-color: rgb(0, 211, 0);
+}
+.cancel{
+    background-color: red;
+}
+form{
+    display: block;
 }

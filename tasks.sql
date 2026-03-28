@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2026 at 06:35 PM
+-- Generation Time: Mar 28, 2026 at 05:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,16 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `tasks` (
   `ID` int(11) NOT NULL,
   `NAME` char(32) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  `DESCRIPTION` char(64) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+  `DESCRIPTION` char(64) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `date` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`ID`, `NAME`, `DESCRIPTION`) VALUES
-(1, 'Zadanie domyślne', 'Domyślnie stworzone zadanie'),
-(2, 'Domyślny task', 'Domyślny task TO-DO stworzony na potrzeby testów');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +52,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
