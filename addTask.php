@@ -10,10 +10,9 @@ if($connection->connect_errno !== 0){
     $description = $_POST["taskDescription"];
     $uniqueness = @$connection->query("SELECT * FROM tasks WHERE name = '$name'");
     if(mysqli_num_rows($uniqueness) > 0){
-      $_SESSION['error'] = "Task with this name already exists!";
+      $_SESSION['error'] = "Task TO-DO z tą nazwą już istnieje!";
       } else{
         $now = date("d.m.y");
-        var_dump($now);
         @$connection->query("INSERT INTO tasks (NAME,DESCRIPTION,DATE) VALUES ('$name','$description','$now')");
         }
     mysqli_free_result($uniqueness);
