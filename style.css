@@ -1,8 +1,17 @@
-body{
+/* #region mainElements*/
+*{
+  font-family: inherit;
+  font-size: inherit;
+}
+body {
   margin: 0px;
   color: white;
+  background-color: #707070;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
-header{
+
+header {
   background-color: darkred;
   position: sticky;
   top: 0px;
@@ -12,34 +21,99 @@ header{
 
   display: inline-block;
 }
-main{
-  background-color: #404040;
+
+main {
   min-height: 100vh;
+  margin: initial;
+  margin-top: 40px
 }
-footer{
+
+footer {
   background-color: #303030;
+  bottom: 0px;
+  padding: 1vw;
+  width: 98vw;
 }
-.task, main form{
+
+header h1 {
+  display: inline-block;
+}
+
+/* #endregion */
+/* #region form*/
+.task,
+form:not(.task form) {
   border: 4px solid #555555;
   text-align: center;
   border-radius: 10px;
-  background-color: #707070;
+  background-color: #333;
   margin: 0 auto;
-  width: 50%;
+  width: 48%;
+  padding: 1%;
   margin-bottom: 10px;
 }
-label{
+
+.task * {
+  float: center;
+}
+
+label {
   font-size: 1.5em;
 }
-.confirm{
-    background-color: rgb(0, 211, 0);
+
+label, input, textarea, button, a{
+  margin: initial;
+  margin-top: 10px;
 }
-.cancel{
-    background-color: red;
+.confirm {
+  color: white;
+  background-color: rgb(0, 211, 0);
+  border: solid rgb(0, 211, 0) 4px;
+  border-radius: 20px;
 }
-form{
-    display: block;
+
+.cancel {
+  color: white;
+  background-color: red;
 }
-header h1{
-  display: inline-block;
+
+form {
+  display: block;
 }
+
+button {
+  cursor: pointer;
+}
+
+.editBtn {
+  /*Źródło obrazu: freepik */
+  background-image: url(editImage.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.editBtn,
+.cancel {
+  float: right;
+  width: 40px;
+  height: 40px;
+  border: none;
+  margin-left: 2px;
+  border-radius: 5px;
+
+}
+
+#cancelEdit{
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  border: solid red 4px;
+  border-radius: 20px;
+  text-align: center;
+
+}
+
+textarea{
+  max-width: 90%;
+}
+/* #endregion */

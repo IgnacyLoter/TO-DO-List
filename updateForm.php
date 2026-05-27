@@ -13,22 +13,30 @@
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form action="updateTask.php" method="post">
-
-      <label for="newName">
-        Nowa nazwa zadania<br>
-        <input name="newName" value=<?=$name?> placeholder=<?=$name?>>
-      </label>
-      <br>
-      <label for="newDescription">
-        Nowy opis zadania<br>
-        <textarea name="newDescription" placeholder=<?=$description?>><?=$description?></textarea>
-      </label>
-      <input type="hidden" value=<?=$id?> name="taskId">
-      <button class="confirm">Zmień</button>
-
-      <a class="cancel" href="index.php"></a>
-
+    
+      <header>
+        <h1>TO-DO LIST</h1>
+      </header>
+      <main>
+        <form action="updateTask.php" method="post">
+          <label for="newName">
+            Nowa nazwa zadania<br>
+            <input name="newName" value=<?=$name?> placeholder=<?=$name?>>
+          </label>
+          <br>
+          <label for="newDescription">
+            Nowy opis zadania<br>
+            <textarea name="newDescription" placeholder=<?=$description?>><?=$description?></textarea>
+          </label>
+          <input type="hidden" value=<?=$id?> name="taskId">
+          <br>
+          <button class="confirm">Zmień</button>
+          <a id="cancelEdit" href="index.php">Anuluj</a>
+        </form>
+      </main>
+      <footer>
+        <p>Autor: Ignacy Loter; 2026;</p>
+      </footer>
     </form>
   </body>
 </html>

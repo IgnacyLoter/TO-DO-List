@@ -14,7 +14,6 @@
         <h1>TO-DO LIST</h1>
       </header>
       <main>
-        <br><br><br><br><br><br>
         <form action="addTask.php" method="post">
           <label for="taskName">
             Nazwa zadania<br>
@@ -63,16 +62,19 @@
                       <h2>$name</h2>
                       <p>$description</p>
                       <p>$sinceString</p>
+                      <form action='removeTask.php' method='post'>
+                        <input type='hidden' value=\"$id\" name='taskId'>
+                        <button class='cancel'>Usuń</button>
+                      </form>
                       <form action='updateForm.php' method='post'>
                         <input type='hidden' name='taskName' value=\"$name\">
                         <input type='hidden' name='taskDescription' value=\"$description\">
                         <input type='hidden' name='taskId' value=\"$id\">
-                        <button class='editBtn'>Edytuj</button>
+                        <button class='editBtn'></button>
                       </form>
-                      <form action='removeTask.php' method='post'>
-                        <input type='hidden' value=\"$id\" name='taskId'>
-                        <button class='cancel'>Usuń</button>
-                      </form> 
+                      <br>
+                      <br>
+                      <br> 
                     </div>";
                 }
             }
