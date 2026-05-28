@@ -1,13 +1,9 @@
 # TO-DO List
-Zawansowane użycie bazy danych do przechowywania danych
-Pozwala na tworzenie nowych danych (Create)
-Czytanie wartości (Read)
-Zmienianie wartości (Update)
-Usuwanie wartości (Delete)
+Ten projekt jest tzw. CRUDem, czyli aplikacją, która potrafii:
+* Tworzyć  (C - Create)
+* Czytać   (R - Read)
+* Zmieniać (U - Update)
+* Usuwać   (D - Delete)
+  dane w bazie danych.
 
-Środkiem UI, pozwalając na wszelkie zadania jest plik index.php. Zawiera on następujące elementy:
-Tworzenie zadanie poprzez formularz, który za pomocą metody POST wysyła te dane to addTask.php
-
-TODO:
----
-Zmienienie nazwy repozytorium z "TO-DO TASKS" na "TO-DO LIST"
+Aplikacja pozwala na zarządzanie TO-DO Listą. Każdy tasks na tej liście zawiera: nazwę, opis i długość czasu od powstania pliku.
