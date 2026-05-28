@@ -14,10 +14,11 @@
         <h1>TO-DO LIST</h1>
       </header>
       <main>
+        <script src="addTask().js"></script>
         <form action="addTask.php" method="post">
           <label for="taskName">
             Nazwa zadania<br>
-            <input name="taskName">
+            <input name="taskName" required>
           </label>
           <br>
           <label for="taskDescription">
@@ -27,6 +28,9 @@
           <br>
           <button class="confirm">Dodaj zadanie</button>
         </form>
+        <div id="taskDiv">
+
+        </div>
         <?php 
           if(isset($_SESSION['error'])){
             echo '<span style="color:red;">'.$_SESSION['error'].'</span>';
@@ -40,9 +44,6 @@
               <p> Go ahead and add some! </h1>";
             } else{
               foreach ($_SESSION["tasks"] as $task) {
-                  $id = $task['id'];
-                  $name = $task['name'];
-                  $description = $task['description'];
 
                   $date = DateTime::createFromFormat('d.m.y', $task['date']);
                   $now = DateTime::createFromFormat('d.m.y', date("d.m.y"));
@@ -57,25 +58,10 @@
                         } else{
                             $sinceString = "Stworzono dziś";
                           }
-                  echo "
-                    <div class=\"task\">
-                      <h2>$name</h2>
-                      <p>$description</p>
-                      <p>$sinceString</p>
-                      <form action='removeTask.php' method='post'>
-                        <input type='hidden' value=\"$id\" name='taskId'>
-                        <button class='cancel'>Usuń</button>
-                      </form>
-                      <form action='updateForm.php' method='post'>
-                        <input type='hidden' name='taskName' value=\"$name\">
-                        <input type='hidden' name='taskDescription' value=\"$description\">
-                        <input type='hidden' name='taskId' value=\"$id\">
-                        <button class='editBtn'></button>
-                      </form>
-                      <br>
-                      <br>
-                      <br> 
-                    </div>";
+                  echo '
+                  <script>
+                    addTask("'.$task["id"].'","'.$task["name"].'","'.$task["description"].'","'.$sinceString.'");
+                  </script>';
                 }
             }
         ?>

@@ -21,12 +21,12 @@
         <form action="updateTask.php" method="post">
           <label for="newName">
             Nowa nazwa zadania<br>
-            <input name="newName" value=<?=$name?> placeholder=<?=$name?>>
+            <input name="newName" value="<?=$name?>" placeholder="<?=$name?>">
           </label>
           <br>
           <label for="newDescription">
             Nowy opis zadania<br>
-            <textarea name="newDescription" placeholder=<?=$description?>><?=$description?></textarea>
+            <textarea name="newDescription" placeholder="<?=$description?>"><?=$description?></textarea>
           </label>
           <input type="hidden" value=<?=$id?> name="taskId">
           <br>
