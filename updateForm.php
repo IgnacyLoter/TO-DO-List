@@ -13,7 +13,6 @@
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
       <header>
         <h1>TO-DO LIST</h1>
       </header>
