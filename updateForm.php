@@ -5,7 +5,7 @@
     $description = $_POST['taskDescription'];
 ?>
 <!DOCTYPE html>
-  <html>
+  <html lang="pl">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +20,12 @@
         <form action="updateTask.php" method="post">
           <label for="newName">
             Nowa nazwa zadania<br>
-            <input name="newName" value="<?=$name?>" placeholder="<?=$name?>">
+            <input id="newName" name="newName" value="<?=$name?>" placeholder="<?=$name?>">
           </label>
           <br>
           <label for="newDescription">
             Nowy opis zadania<br>
-            <textarea name="newDescription" placeholder="<?=$description?>"><?=$description?></textarea>
+            <textarea id="newDescription" name="newDescription" placeholder="<?=$description?>"><?=$description?></textarea>
           </label>
           <input type="hidden" value=<?=$id?> name="taskId">
           <br>
@@ -36,6 +36,5 @@
       <footer>
         <p>Autor: Ignacy Loter; 2026;</p>
       </footer>
-    </form>
   </body>
 </html>

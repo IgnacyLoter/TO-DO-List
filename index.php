@@ -18,12 +18,12 @@
         <form action="addTask.php" method="post">
           <label for="taskName">
             Nazwa zadania<br>
-            <input name="taskName" required>
+            <input name="taskName" id="taskName" required>
           </label>
           <br>
           <label for="taskDescription">
             Opis zadania<br>
-          <textarea name="taskDescription"></textarea>
+          <textarea name="taskDescription" id="taskDescription"></textarea>
           </label>
           <br>
           <button class="confirm">Dodaj zadanie</button>
