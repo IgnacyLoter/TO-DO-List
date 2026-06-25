@@ -55,7 +55,8 @@
                             } else{
                                 $sinceString = "Stworzono dziś";
                               }
-                      echo '<script> addTask("'.$task["id"].'","'.$task["name"].'","'.$task["description"].'","'.$sinceString.'"); </script>';
+                              //Użycie "`" jest wymagane, bo inaczej zbyt długa nazwa taska, opis lub nawet id mogłoby przerzucić na następną linijkę, a wtedy js nie zadziała
+                      echo '<script> addTask(`'.$task["id"].'`,`'.$task["name"].'`,`'.$task["description"].'`,`'.$sinceString.'`); </script>';
                     }
                 }
         ?>
