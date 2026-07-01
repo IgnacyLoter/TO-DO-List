@@ -36,29 +36,25 @@
             }
           require 'getTasks.php';
 
-          if(isset($_SESSION['no_tasks'])){
-                echo "
-                <h1> No tasks found! </h1>
-                <p> Go ahead and add some! </h1>";
-              } else{
-                  foreach ($_SESSION["tasks"] as $task) {
-                      $date = DateTime::createFromFormat('d.m.y', $task['date']);
-                      $now = DateTime::createFromFormat('d.m.y', date("d.m.y"));
-                      $since = $date->diff($now);
+          if(count($_SESSION["tasks"]) > 0){
+              foreach ($_SESSION["tasks"] as $task) {
+                  $date = DateTime::createFromFormat('d.m.y', $task['date']);
+                  $now = DateTime::createFromFormat('d.m.y', date("d.m.y"));
+                  $since = $date->diff($now);
                         
-                      if($since->y > 0){
-                          $sinceString = "Minęło ". $since->y ." lat, od kiedy powstało zadanie";
-                        } else if($since->m > 0){
-                            $sinceString = "Minęło ". $since->m ." miesięcy, od kiedy powstało zadanie";
-                          } else if($since->d > 0){
-                              $sinceString = "Minęło ". $since->d ." dni, od kiedy powstało zadanie";
-                            } else{
-                                $sinceString = "Stworzono dziś";
-                              }
-                              //Użycie "`" jest wymagane, bo inaczej zbyt długa nazwa taska, opis lub nawet id mogłoby przerzucić na następną linijkę, a wtedy js nie zadziała
-                      echo '<script> addTask(`'.$task["id"].'`,`'.$task["name"].'`,`'.$task["description"].'`,`'.$sinceString.'`); </script>';
-                    }
+                  if($since->y > 0){
+                      $sinceString = "Minęło ". $since->y ." lat, od kiedy powstało zadanie";
+                    } else if($since->m > 0){
+                        $sinceString = "Minęło ". $since->m ." miesięcy, od kiedy powstało zadanie";
+                      } else if($since->d > 0){
+                          $sinceString = "Minęło ". $since->d ." dni, od kiedy powstało zadanie";
+                        } else{
+                            $sinceString = "Stworzono dziś";
+                          }
+                  //Użycie "`" jest wymagane, bo inaczej zbyt długa nazwa taska, opis lub nawet id mogłoby przerzucić na następną linijkę, a wtedy js nie zadziała
+                  echo '<script> addTask(`'.$task["id"].'`,`'.$task["name"].'`,`'.$task["description"].'`,`'.$sinceString.'`); </script>';
                 }
+            }
         ?>
       </main>
       <footer>

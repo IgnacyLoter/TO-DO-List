@@ -9,10 +9,10 @@ if($connection->connect_errno !== 0){
       $tasks = @$connection->query("SELECT * FROM tasks");
       
       if(mysqli_num_rows($tasks) > 0){
-        while($row = $tasks->fetch_assoc()){
-            array_push($_SESSION["tasks"], ["id" => $row["ID"],"name" => $row["NAME"], "description" => $row["DESCRIPTION"], "date" => $row["DATE"]]);
-          }
-        }  
+          while($row = $tasks->fetch_assoc()){
+              array_push($_SESSION["tasks"], ["id" => $row["ID"],"name" => $row["NAME"], "description" => $row["DESCRIPTION"], "date" => $row["DATE"]]);
+            }
+        }
       mysqli_free_result($tasks);
     }
 $connection->close();
