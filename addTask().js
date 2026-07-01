@@ -1,4 +1,21 @@
 function addTask(id,name,description,sinceString){
+  /*
+  <div class='task'>
+    <h2>name</h2>
+    <p>description</p>
+    <p>sinceString</p>
+    <form method="post">
+      <input type="hidden" value=name name="taskId">
+      <input type="hidden" value=description name="taskDescription">
+      <input type="hidden" value=id name="taskId">
+      <button class='cancel' formAction='removeTask.php'>Usuń</button>
+      <button class='editBtn' formAction='updateForm.php'></button>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div
+  */
     const taskDiv = document.querySelector('#taskDiv');
     const div = document.createElement('div');
     div.className = 'task';
@@ -11,29 +28,21 @@ function addTask(id,name,description,sinceString){
     const sinceStringPar = div.appendChild(document.createElement('p'));
     sinceStringPar.innerText = sinceString;
 
-    const removeForm = div.appendChild(document.createElement('form'));
-    removeForm.action = 'removeTask.php';
-    removeForm.method = 'post';
-    const removeFormInput = removeForm.appendChild(document.createElement('input'));
-    removeFormInput.type = 'hidden';
-    removeFormInput.value = id;
-    removeFormInput.name = 'taskId';
-    const removeFormButton = removeForm.appendChild(document.createElement('button'));
-    removeFormButton.className = 'cancel';
-    removeFormButton.innerText = 'Usuń';
-
-    const updateForm = div.appendChild(document.createElement('form'));
-    updateForm.action = 'updateForm.php';
-    updateForm.method = 'post';
-    const updateFormInputs = [];
+    const taskForm = div.appendChild(document.createElement('form'));
+    taskForm.method = 'post';
     for(let i = 0; i < 3; i++){
-        updateFormInputs[i] = updateForm.appendChild(document.createElement('input'));
-        updateFormInputs[i].type = 'hidden';
-        updateFormInputs[i].name = 'task' + ['Name','Description','Id'][i];
-        updateFormInputs[i].value = [name,description,id][i];
-      }
-    const updateFormButton = updateForm.appendChild(document.createElement('button'));
-    updateFormButton.className = 'editBtn';
+      let currentInput = taskForm.appendChild(document.createElement('input'));
+      currentInput.type = 'hidden';
+      currentInput.name = 'task' + ['Name','Description','Id'][i];
+      currentInput.value = [name,description,id][i];
+    }
+    const removeTaskButton = taskForm.appendChild(document.createElement('button'));
+    removeTaskButton.className = 'cancel';
+    removeTaskButton.innerText = 'Usuń';
+    removeTaskButton.formAction = 'removeTask.php';
+    const updateTaskButton = taskForm.appendChild(document.createElement('button'));
+    updateTaskButton.className = 'editBtn';
+    updateTaskButton.formAction = 'updateForm.php';
     for(let i = 0; i < 3; i++){
       div.appendChild(document.createElement('br'));
     }
